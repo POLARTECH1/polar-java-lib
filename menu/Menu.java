@@ -122,4 +122,41 @@ public class Menu {
     public void setAucuneOptionMessage(String aucuneOptionMessage) {
         this.aucuneOptionMessage = aucuneOptionMessage;
     }
+
+    /**
+     * @return les différentes options du menu.
+     */
+    public List<String> getOptions() {
+        return List.copyOf(options);
+    }
+
+    /**
+     * Modifie une option du menu.
+     *
+     * @param index  l'index de l'option à modifier.
+     * @param option la nouvelle option.
+     * @throws IndexOutOfBoundsException si l'index n'existe pas.
+     */
+
+    public void setOptions(int index, String option) throws IndexOutOfBoundsException {
+        try {
+            options.set(index, option);
+        } catch (IndexOutOfBoundsException e) {
+            throw new IndexOutOfBoundsException("L'index n'existe pas.");
+        }
+    }
+
+    /**
+     * Enlève une option du menu.
+     *
+     * @param index l'index de l'option à enlever.
+     * @throws IndexOutOfBoundsException si l'index n'existe pas.
+     */
+    public void removeOption(int index) throws IndexOutOfBoundsException {
+        try {
+            options.remove(index);
+        } catch (IndexOutOfBoundsException e) {
+            throw new IndexOutOfBoundsException("L'index n'existe pas.");
+        }
+    }
 }
